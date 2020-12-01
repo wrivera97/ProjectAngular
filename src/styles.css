@@ -1,0 +1,28 @@
+@import "~@fortawesome/fontawesome-free/css/all.css"; /*import icons svg from fontawesome for all project */
+
+  /*responsive logo*/
+.main-icon{
+  background-image: url("../src/assets/img/main_logo.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+  height: border-box;
+  width: border-box;
+}
+/*personalized background mockup color*/
+.bg-white-opaque{
+  background-color: #F0F4F8;
+}
+.btn-green {
+  color: whitesmoke;
+  background-color: #7bed8d;
+  border: 0;
+  border-radius: 50px;
+  height: 50px;
+  width: 100px;
+  outline: none;
+}
+
+.label-green {
+  color: #7bed8d;
+  text-decoration: none;
+}
