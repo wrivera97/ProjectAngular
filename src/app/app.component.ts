@@ -9,8 +9,8 @@ import {RecipeService} from './shared/recipe.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  recipes: Array<Recipe> ;
-  selectedRecipe: Recipe;
+  recipes: any ;
+  selectedRecipe: any;
   recipe: Recipe;
 
 
@@ -30,10 +30,20 @@ ngOnInit() {
   getRecipe(recipe: Recipe) {
     this.selectedRecipe = recipe;
     this.recipeService.get('recipes?id=' + this.selectedRecipe).subscribe(
-      (response) => {
-    this.selectedRecipe = response;
+      (response)   => {
+    this.selectedRecipe  = response;
+    console.log(response);
       });
   }
+  postRecipe() {
+    this.recipeService.post();
+  }
+  deleteRecipe() {
+    this.recipeService.delete();
+  }
+  updateRecipe() {
+    this.recipeService.put();
 
+  }
 }
 

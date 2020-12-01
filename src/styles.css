@@ -21,8 +21,14 @@
   width: 100px;
   outline: none;
 }
-
 .label-green {
   color: #7bed8d;
   text-decoration: none;
+}
+/*img size */
+.img-size{
+  height:510px;
+  width: 500px;
+  border-radius: 0px 0px 0px 200px;
+
 }

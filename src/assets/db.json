@@ -3,13 +3,25 @@
       {
         "id": 1,
         "name": "Encebollado",
-        "instruction": "cocinar......"
+        "instruction": "cocinar......",
+        "state": "read",
+        "src": "assets/img/encebollado.jpg",
+       "ingredients": [
+         "Arroz",
+         "Pescado",
+         "Verde"]
       },
       {
         "id": 2,
         "name": "Bolon de verde con cafe",
-        "instruction": "asdfg"
+        "instruction": "asdfg",
+        "state": "not read",
+        "src": "assets/img/main_icon.png",
+        "ingredients":[
+          "Mani",
+          "Verde",
+          "Cafe"
+        ]
       }
     ]
   }
-  

@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active text-uppercase">
-          <a class="nav-link text-secondary" href="#"><i class="fa fa-plus"></i> Add recipe <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-secondary" href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-plus"></i> Add recipe <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <div>
@@ -25,26 +25,60 @@
     </div>
   </nav>
 </header>
-<div>
-<table class="table">
-  <thead >
-  <td class="text-uppercase text-secondary"  >Kitchen recipes</td>
+
+<table class="table table-responsive-xl" >
+  <thead>
+  <tr>
+  <td class="text-uppercase text-secondary">Kitchen recipes</td>
   <td>
-    <select class="btn rounded btn-outline-light bg-white-opaque text-success text-uppercase" [(ngModel)]="selectedRecipe">
-      <option value="" [hidden]="true"> select a recipe</option>
-      <option  *ngFor="let recipe of recipes" [value]="recipe.id" (change)="getRecipe(selectedRecipe)">{{recipe.name}}</option>
+    <select class="btn rounded btn-outline-light bg-white-opaque text-success text-uppercase" [(ngModel)]="selectedRecipe.id" (change)="getRecipe(selectedRecipe.id)">
+      <option  value="1"  disabled="disabled" > select a recipe</option>
+      <option  *ngFor="let recipe of recipes" [value]="recipe.id" (change)="getRecipe(selectedRecipe)" selected=1>{{recipe.name}}</option>
     </select>
-   {{selectedRecipe}}
   </td>
-  </thead>
-  <tbody>
-  <td >
-
-  </td>
-
-  </tbody>
+    <td class="p-0 pr-0 float-sm-right" *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive img-size" [src]="recipeImg.src"></td>
+  </tr>
+  </thead >
 </table>
+<!--<modal>-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form #myForm= "ngForm">
+        <div class="modal-header border-dark">
+          <h6 class="modal-title text-secondary col-sm-3 col-form-label" id="exampleModalLongTitle">New Recipe </h6>
+          <input class="form-control btn-light col-8"  type="text"  name="name"  ngModel="" placeholder="Recipe Name" required>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fas fa-times" style="color: rgb(230, 33, 33);"></i></span>
+          </button>
+        </div>
 
+        <div class="modal-body">
+
+          <div class="collapse form-group" id="collapseExample">
+            <input class="form-control col-10 btn-light border-secondary" type="text" >
+          </div>
+
+          <div class="text-lg-right">
+            <i class="fas fa-plus btn btn-secondary btn-sm rounded-circle"  data-toggle="collapse" data-target="#collapseExample"></i>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group mb-5 pb-2">
+              <label class="label-green" for="instruction">Instructions </label>
+              <textarea class="form-control btn-light" id="instruction"  name="instruction" ngModel="" rows="4" placeholder="Instructions"  required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button  type="submit" class="btn btn-green"><i class="fas fa-check"></i> Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+<!--</modal>-->
+
 </body>
 </html>
+<!--<td *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive   float-lg-right img-fluid img-thumbnail img-size" [src]="recipeImg.src"></td>-->
