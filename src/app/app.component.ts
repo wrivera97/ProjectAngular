@@ -9,14 +9,16 @@ import {RecipeService} from './shared/recipe.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  question: boolean;
   recipes: any ;
   selectedRecipe: any;
-  recipe: Recipe;
-
-
+  newRecipe: Recipe = new Recipe();
   constructor(private http: HttpClient, private recipeService: RecipeService) {
   }
 ngOnInit() {
+    /*this.arrayRecipes = [
+      { id: 0, name: '', instruction: '', state: '' , src: '', ingredients: ''}
+      ];*/
     this.selectedRecipe = new Recipe();
     this.getRecipes();
 }
@@ -32,18 +34,29 @@ ngOnInit() {
     this.recipeService.get('recipes?id=' + this.selectedRecipe).subscribe(
       (response)   => {
     this.selectedRecipe  = response;
-    console.log(response);
       });
   }
   postRecipe() {
-    this.recipeService.post();
+    this.newRecipe.src = 'assets/img/example_img.jpg'; // default img not path for news recipes
+    this.newRecipe.state = 'not read'; // default state false for news recipes
+    this.recipeService.post('recipes', this.newRecipe).subscribe(
+      (reponse) => {
+        if (reponse) {alert('You successfully added a new recipe'); } else {alert('There is an error'); }
+      // this.newRecipe = new Recipe() ;
+    });
   }
-  deleteRecipe() {
-    this.recipeService.delete();
+  deleteRecipe(dataRecipe) {
+    this.question = confirm('¿Are you sure?');
+    if (this.question) {
+      this.recipeService.delete('recipes/' + dataRecipe.id).subscribe(
+        (responde) => {
+        });
   }
-  updateRecipe() {
+  }
+
+ /* updateRecipe() {
     this.recipeService.put();
 
-  }
-}
+  }*/
 
+}

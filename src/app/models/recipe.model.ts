@@ -5,7 +5,7 @@ export class Recipe {
   name: string;
   instruction: string;
   state: string;
-  ingredients: any;
+   ingredients: any;
   src: any;
 
   constructor() {
