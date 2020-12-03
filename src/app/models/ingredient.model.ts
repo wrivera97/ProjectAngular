@@ -1,8 +1,10 @@
 export class Ingredient {
-  id: number;
+  id?: number;
   name: string;
+  state: string;
   constructor() {
     this.id = 0;
     this.name = '';
+    this.state = '';
   }
 }

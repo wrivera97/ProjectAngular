@@ -14,14 +14,13 @@ export class RecipeService {
     return this._http.get(environment.API_URL + url);
   }
   post(url: string, data: any) {
-    url = environment.API_URL + url ;
+    url = environment.API_URL + url ; // url storage via environment no production
     this.headers = new HttpHeaders();
     return this._http.post(url, data, {headers: this.headers} );
   }
   put(url: string, data: any) {
-    url = environment.API_URL + url ;
-    this.headers = new HttpHeaders();
-    return this._http.put(url, data, {headers: this.headers} );
+    url = environment.API_URL + url;
+    return this._http.put(url , data, {headers: this.headers}); /*headers for send data to server with json or xml */
   }
   delete(url: string   ) {
     url = environment.API_URL + url;

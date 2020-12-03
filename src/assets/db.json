@@ -2,39 +2,93 @@
   "recipes": [
     {
       "id": 1,
+      "name": "Guatita",
+      "instruction": "Lorem ipsum dolor sit amet. Etiam vitae hendrerit eros. Nam vitae elementum dolor. Phasellus fermentum accumsan magna. Vivamus aliquam est quam, sed fermentum magna dapibus id. Donec dictum mauris faucibus tempor scelerisque. Integer vestibulum lorem orci, pulvinar fringilla nisi bibendum non. Mauris non neque eu tortor volutpat dapibus. Nullam at erat in sapien sodales tincidunt in sit amet this a test of update service",
+      "state": "read",
+      "src": "assets/img/example_img.jpg",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "Yuca",
+          "quantity": "1/5",
+          "state": true
+        },
+        {
+          "id": 2,
+          "name": "Cebolla",
+          "quantity": "1/5",
+          "state": false
+        },
+        {
+          "id": 3,
+          "name": "Pescado",
+          "quantity": "4lbs",
+          "state": true
+        }
+      ]
+    },
+    {
+      "id": 2,
       "name": "Encebollado",
       "instruction": "Lorem ipsum dolor sit amet. Etiam vitae hendrerit eros. Nam vitae elementum dolor. Phasellus fermentum accumsan magna. Vivamus aliquam est quam, sed fermentum magna dapibus id. Donec dictum mauris faucibus tempor scelerisque. Integer vestibulum lorem orci, pulvinar fringilla nisi bibendum non. Mauris non neque eu tortor volutpat dapibus. Nullam at erat in sapien sodales tincidunt in sit amet dia",
       "state": "read",
       "src": "assets/img/encebollado.jpg",
       "ingredients": [
-        "yuca",
-        "bacalao",
-        "chifle"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Bolon de verde con cafe",
-      "instruction": "assets/instructions.txt",
-      "state": "not read",
-      "src": "assets/img/bolondeverde.jpg",
-      "ingredients": [
-        "Mani",
-        "Verde",
-        "Cafe"
+        {
+          "id": 1,
+          "name": "Yuca",
+          "quantity": "1/5",
+          "state": true
+        },
+        {
+          "id": 2,
+          "name": "Cebolla",
+          "quantity": "1/5",
+          "state": false
+        },
+        {
+          "id": 3,
+          "name": "Pescado",
+          "quantity": "4lbs",
+          "state": true
+        }
       ]
     },
     {
       "id": 3,
-      "name": "Ceviche de pescado",
-      "instruction": "asdfg",
+      "name": "joel",
+      "instruction": ",mcskld",
       "state": "not read",
-      "src": "assets/img/ceviche.jpg",
-      "ingredients": [
-        "pescado",
-        "cebolla",
-        "arroz"
-      ]
+      "src": "assets/img/example_img.jpg",
+      "ingredient": {
+        "id": 0,
+        "name": "",
+        "state": ""
+      }
     },
+    {
+      "id": 4,
+      "name": "ffffffffff",
+      "instruction": "12345670'9i2398u",
+      "state": "not read",
+      "src": "assets/img/example_img.jpg",
+      "ingredient": {
+        "id": 0,
+        "name": "",
+        "state": ""
+      }
+    },
+    {
+      "id": 5,
+      "name": "Papas con cuero",
+      "instruction": "cocinar las papitas bien que no se quemen xd",
+      "state": "not read",
+      "src": "assets/img/example_img.jpg",
+      "ingredient": {
+        "id": 0,
+        "name": "",
+        "state": ""
+      }
+    }
   ]
 }

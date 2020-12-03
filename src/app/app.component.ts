@@ -10,9 +10,10 @@ import {RecipeService} from './shared/recipe.service';
 })
 export class AppComponent implements OnInit {
   question: boolean;
-  recipes: any ;
+  recipes: any;
   selectedRecipe: any;
-  newRecipe: Recipe = new Recipe();
+  updateRecipe: any;
+  newRecipe: Recipe;
   constructor(private http: HttpClient, private recipeService: RecipeService) {
   }
 ngOnInit() {
@@ -20,6 +21,8 @@ ngOnInit() {
       { id: 0, name: '', instruction: '', state: '' , src: '', ingredients: ''}
       ];*/
     this.selectedRecipe = new Recipe();
+    this.newRecipe = new Recipe();
+    this.updateRecipe = new Recipe();
     this.getRecipes();
 }
   getRecipes() {
@@ -41,8 +44,13 @@ ngOnInit() {
     this.newRecipe.state = 'not read'; // default state false for news recipes
     this.recipeService.post('recipes', this.newRecipe).subscribe(
       (reponse) => {
-        if (reponse) {alert('You successfully added a new recipe'); } else {alert('There is an error'); }
-      // this.newRecipe = new Recipe() ;
+        if (reponse) {alert('You successfully added a new recipe');
+                      this.newRecipe = new Recipe();
+                      this.getRecipes();
+        } else {
+          alert('There is an error');
+        }
+
     });
   }
   deleteRecipe(dataRecipe) {
@@ -53,10 +61,15 @@ ngOnInit() {
         });
   }
   }
-
- /* updateRecipe() {
-    this.recipeService.put();
-
-  }*/
-
+  putRecipe(dataRecipe: Recipe) {
+    this.updateRecipe = dataRecipe;
+    this.recipeService.put( 'recipes/' + this.updateRecipe.id , this.updateRecipe).subscribe(
+      (response) => {
+        if (response) {
+          alert('update successfully');
+          this.getRecipe(this.selectedRecipe);
+        }
+      }
+    );
+  }
 }

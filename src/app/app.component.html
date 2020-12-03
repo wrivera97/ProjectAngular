@@ -10,29 +10,32 @@
 <body>
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-white-opaque">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active text-uppercase">
-          <a class="nav-link text-secondary" href="#" data-toggle="modal" data-target="#ModalCenter"><i class="fa fa-plus"></i> Add recipe <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-secondary" href="#" data-toggle="modal" data-target="#ModalNew"><i class="fa fa-plus"></i> Add recipe <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <div>
-        <a class="text-uppercase" href="#"> <img class="main-icon"></a>
+        <a class="text-uppercase" href="#"><img class="main-icon" src="assets/img/main_logo.png" height="30" width="30"></a>
       </div>
     </div>
   </nav>
 </header>
 
-<table class="table table-responsive-xl" >
+<table class="table table-responsive-xl">
   <thead>
   <tr>
   <td class="text-uppercase text-secondary pl-4">Kitchen recipes</td>
   <td>
-    <select class="btn rounded  btn-outline-light bg-white-opaque text-success text-uppercase"[(ngModel)]="selectedRecipe.id"  (change)="getRecipe(selectedRecipe.id)">
-      <option  *ngFor="let recipe of recipes" [value]="recipe.id" >{{recipe.name}}</option>
+    <select class="btn rounded  btn-outline-light bg-white-opaque text-success text-uppercase" name="selectedRecipe"
+            [(ngModel)]="selectedRecipe.id" (change)="getRecipe(selectedRecipe.id)">
+      <option class="text-uppercase custom-select" value="0" >{{'select a recipe'}}</option>
+      <option  *ngFor="let recipe of recipes" [ngValue]="recipe.id">{{recipe.name}}</option>
     </select>
   </td>
   </tr>
@@ -44,32 +47,44 @@
     <table class="table table-responsive-sm  table-borderless  overflow-auto">
       <thead class="bg-white-opaque" >
       <tr>
-      <td scope="col" class="text-capitalize text-secondary">{{dataRecipe.name}}</td>
+      <td scope="col" class="text-capitalize  text-secondary">{{dataRecipe.name}} {{'|'}}</td>
       <td scope="col" class="text-secondary">{{'|'}}</td>
-      <td scope="col" class="text-uppercase" [ngClass]="{'text-danger':dataRecipe.state !='read','text-success':dataRecipe.state ==='read'}">{{dataRecipe.state}}</td>
-      <td><i class="fa fa-edit text-info btn btn-outline-light" title="edit recipe"></i></td>
+        <td scope="col" class="text-uppercase" [ngClass]="{'text-danger':dataRecipe.state !='read',
+        'text-success':dataRecipe.state ==='read'}"><span> {{dataRecipe.state}}</span></td>
+      <td><i class="fa fa-edit text-info btn btn-outline-light" data-toggle="modal" data-target="#modalEdit"  title="edit recipe"></i></td>
       <td><i class="fa fa-trash text-danger btn btn-outline-light"  (click)="deleteRecipe(dataRecipe)" title="delete recipe"></i></td>
       </tr>
       </thead>
       <tbody>
-      <tr><td><span class="label-green">Ingredients</span></td></tr>
-      <tr><td>{{dataRecipe.ingredients}}</td></tr>
-      <tr><td><span class="label-green">Instrucions</span></td></tr>
+      <tr><td><span class="txt-green">Ingredients</span></td></tr>
       <tr>
-        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 400px; max-height: 300px;">
-          <td class="col-sm-1"><span>{{dataRecipe.instruction}}</span></td>
+        <td>
+          <div class="form-check">
+        <input class="form-check-input" type="radio" name="radio" id="radios" value="option1" checked>
+        <label class="form-check-label" for="Radios">
+          <!--ingredients-->
+        </label>
+          </div>
+        </td>
+      </tr>
+      <tr><td><span class="txt-green">Instrucions</span></td></tr>
+      <tr>
+        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 400px; max-height: 200px;">
+          <td><span>{{dataRecipe.instruction}}</span></td>
         </div>
       </tbody>
     </table>
+    <td class="pt-0 pl-0 pr-0 pb-0" *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive   float-lg-right img-fluid figure-img img-size" [src]="recipeImg.src"></td>
+
   </tr>
 </table>
-<!--<modal>-->
-<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+<!--<modalCreate>-->
+<div class="modal fade" id="ModalNew" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <form #myForm= "ngForm">
         <div class="modal-header border-dark">
-          <h6 class="modal-title text-secondary col-sm-3 col-form-label" id="ModalLongTitle">New Recipe </h6>
+          <h6 class="modal-title text-secondary col-sm-3 col-form-label" id="modalPost">New Recipe </h6>
           <input class="form-control btn-light col-8"  type="text"  name="name"  [(ngModel)]="newRecipe.name" placeholder="Recipe Name" required>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -86,7 +101,7 @@
 -->
           <div class="control-group">
             <div class="form-group mb-5 pb-2">
-              <label class="label-green" for="instruction">Instructions </label>
+              <label class="txt-green" for="instruction">Instructions </label>
               <textarea class="form-control btn-light" id="instruction"  name="instruction" [(ngModel)]="newRecipe.instruction"  rows="4" placeholder="Instructions"  required></textarea>
             </div>
           </div>
@@ -99,8 +114,42 @@
   </div>
 </div>
 <!--</modal>-->
+
+<!--<modalUpdate>-->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" *ngFor="let dataRecipe of selectedRecipe">
+      <form #myForm= "ngForm">
+        <div class="modal-header border-dark">
+          <h6 class="modal-title text-secondary col-sm-3 col-form-label" id="modalPut" >Edit Recipe </h6>
+          <input class="form-control btn-light col-8"  type="text" name="editName" [(ngModel)]="dataRecipe.name"  required>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <!-- <div class="collapse form-group" id="collapseExample">
+             <input class="form-control col-10 btn-light border-secondary" type="text" >
+           </div>
+
+           <div class="text-lg-right">
+             <i class="fas fa-plus btn btn-secondary btn-sm rounded-circle"  data-toggle="collapse" data-target="#collapseExample"></i>
+           </div>-->
+          <div class="control-group">
+            <div class="form-group mb-5 pb-2">
+              <label class="txt-green" for="instruction">Instructions </label>
+              <textarea class="form-control btn-light"  [(ngModel)]="dataRecipe.instruction"  name="editInstruction" rows="4"   required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button  type="button" class="btn btn-green" (click)="putRecipe(dataRecipe)"><i class="fa fa-save"> Edit</i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--</modal>--->
+
 </body>
 </html>
-<!--<td class="p-0 pr-0 float-sm-right p-md-0" *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive" [src]="recipeImg.src"></td>-->
-
-<!--<td *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive   float-lg-right img-fluid img-thumbnail img-size" [src]="recipeImg.src"></td>-->

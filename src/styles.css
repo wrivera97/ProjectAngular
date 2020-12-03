@@ -1,6 +1,6 @@
 @import "~@fortawesome/fontawesome-free/css/all.css"; /*import icons svg from fontawesome for all project */
 
-  /*responsive logo*/
+/*responsive logo*/
 .main-icon{
   background-image: url("../src/assets/img/main_logo.png");
   background-repeat: no-repeat;
@@ -12,6 +12,7 @@
 .bg-white-opaque{
   background-color: #F0F4F8;
 }
+/*button green of mockup for all */
 .btn-green {
   color: whitesmoke;
   background-color: #7bed8d;
@@ -21,15 +22,18 @@
   width: 100px;
   outline: none;
 }
-.label-green {
+/*color green of mockup for all elements or txt no hover */
+.txt-green {
   color: #7bed8d;
   text-decoration: none;
 }
 /*img size */
 .img-size{
-  height:510px;
+  padding: 0; /*padding all 0*/
+  height:auto;
   width: 500px;
   border-radius: 0px 0px 0px 200px;
+  position: relative;
 
 }
 
