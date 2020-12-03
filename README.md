@@ -1,6 +1,7 @@
 # CrudRecipesProject in Angular8 and Bootstrap 4
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+developed by Wellington Rivera see my website[Joel Rivera](https://joel97c.github.io/) 
 
 ### Introduction
 This is a very simple CRUD developed with ANGULAR 8.0.2 and Bootstrap 4, this provides the following features:
@@ -26,8 +27,7 @@ $ cd ProjectAngular/src/assets
 #Start Local JSON Server
 $json-server --watch db.json
 # watches your files and uses livereload by default. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-$ cd ProjectAngular and run in the terminal or bash ng serve
-
+$ cd ProjectAngular and run in the terminal or bash `ng serve`.
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
