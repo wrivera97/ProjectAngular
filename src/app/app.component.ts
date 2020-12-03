@@ -40,7 +40,7 @@ ngOnInit() {
       });
   }
   postRecipe() {
-    this.newRecipe.src = 'assets/img/example_img.jpg'; // default img not path for news recipes
+    this.newRecipe.src = 'assets/img/generica.jpg'; // default img not path for news recipes
     this.newRecipe.state = 'not read'; // default state false for news recipes
     this.recipeService.post('recipes', this.newRecipe).subscribe(
       (reponse) => {
@@ -58,6 +58,7 @@ ngOnInit() {
     if (this.question) {
       this.recipeService.delete('recipes/' + dataRecipe.id).subscribe(
         (responde) => {
+          this.getRecipes();
         });
   }
   }
@@ -67,7 +68,7 @@ ngOnInit() {
       (response) => {
         if (response) {
           alert('update successfully');
-          this.getRecipe(this.selectedRecipe);
+          this.getRecipes();
         }
       }
     );

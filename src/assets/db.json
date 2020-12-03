@@ -2,33 +2,6 @@
   "recipes": [
     {
       "id": 1,
-      "name": "Guatita",
-      "instruction": "Lorem ipsum dolor sit amet. Etiam vitae hendrerit eros. Nam vitae elementum dolor. Phasellus fermentum accumsan magna. Vivamus aliquam est quam, sed fermentum magna dapibus id. Donec dictum mauris faucibus tempor scelerisque. Integer vestibulum lorem orci, pulvinar fringilla nisi bibendum non. Mauris non neque eu tortor volutpat dapibus. Nullam at erat in sapien sodales tincidunt in sit amet this a test of update service",
-      "state": "read",
-      "src": "assets/img/example_img.jpg",
-      "ingredients": [
-        {
-          "id": 1,
-          "name": "Yuca",
-          "quantity": "1/5",
-          "state": true
-        },
-        {
-          "id": 2,
-          "name": "Cebolla",
-          "quantity": "1/5",
-          "state": false
-        },
-        {
-          "id": 3,
-          "name": "Pescado",
-          "quantity": "4lbs",
-          "state": true
-        }
-      ]
-    },
-    {
-      "id": 2,
       "name": "Encebollado",
       "instruction": "Lorem ipsum dolor sit amet. Etiam vitae hendrerit eros. Nam vitae elementum dolor. Phasellus fermentum accumsan magna. Vivamus aliquam est quam, sed fermentum magna dapibus id. Donec dictum mauris faucibus tempor scelerisque. Integer vestibulum lorem orci, pulvinar fringilla nisi bibendum non. Mauris non neque eu tortor volutpat dapibus. Nullam at erat in sapien sodales tincidunt in sit amet dia",
       "state": "read",
@@ -55,11 +28,11 @@
       ]
     },
     {
-      "id": 3,
-      "name": "joel",
-      "instruction": ",mcskld",
+      "id": 2,
+      "name": "Ceviche de camaron",
+      "instruction": "Nam elementum leo sit amet lacus dictum, vel mollis magna auctor. Donec varius nisi vitae lacus dignissim, dapibus venenatis mi aliquam. In convallis, quam pharetra scelerisque lobortis, ligula mauris imperdiet nisi, et lacinia tellus urna vitae dolor. Nullam vitae sapien sed augue ornare eleifend aliquam nec elit. In hac habitasse platea dictumst. Praesent vitae efficitur sapien, vitae interdum ligula. Phasellus velit urna, sollicitudin eu auctor finibus, sollicitudin a augue. Donec ac dapibus leo, at pretium nibh.",
       "state": "not read",
-      "src": "assets/img/example_img.jpg",
+      "src": "assets/img/ceviche_de_camaron.jpg",
       "ingredient": {
         "id": 0,
         "name": "",
@@ -68,10 +41,10 @@
     },
     {
       "id": 4,
-      "name": "ffffffffff",
-      "instruction": "12345670'9i2398u",
+      "name": "Ceviche de pescado",
+      "instruction": "Etiam felis arcu, consectetur eget semper vitae, egestas ac ante. Aliquam et lectus augue. Suspendisse velit eros, semper ac vestibulum eu, egestas sed orci. Nullam non magna leo. Quisque tempus finibus eros id pharetra. Donec euismod finibus ipsum, eu dignissim nisl ultricies nec. Donec eleifend dui turpis, et elementum leo auctor scelerisque. Phasellus sed scelerisque enim. Morbi non erat quis velit elementum commodo.",
       "state": "not read",
-      "src": "assets/img/example_img.jpg",
+      "src": "assets/img/ceviche_pescado.jpg",
       "ingredient": {
         "id": 0,
         "name": "",
@@ -80,10 +53,10 @@
     },
     {
       "id": 5,
-      "name": "Papas con cuero",
-      "instruction": "cocinar las papitas bien que no se quemen xd",
+      "name": "Bolon de verda",
+      "instruction": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed",
       "state": "not read",
-      "src": "assets/img/example_img.jpg",
+      "src": "assets/img/generica.jpg",
       "ingredient": {
         "id": 0,
         "name": "",

@@ -30,8 +30,8 @@
 /*img size */
 .img-size{
   padding: 0; /*padding all 0*/
-  height:auto;
-  width: 500px;
+  height:400px;
+  width: 400px;
   border-radius: 0px 0px 0px 200px;
   position: relative;
 

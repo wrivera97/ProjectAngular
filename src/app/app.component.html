@@ -21,7 +21,7 @@
         </li>
       </ul>
       <div>
-        <a class="text-uppercase" href="#"><img class="main-icon" src="assets/img/main_logo.png" height="30" width="30"></a>
+        <a class="text-uppercase" ><img class="main-icon" src="assets/img/main_logo.png" height="30" width="30"></a>
       </div>
     </div>
   </nav>
@@ -67,14 +67,14 @@
           </div>
         </td>
       </tr>
-      <tr><td><span class="txt-green">Instrucions</span></td></tr>
+      <tr><td><span class="txt-green">Instructions</span></td></tr>
       <tr>
         <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-width: 400px; max-height: 200px;">
           <td><span>{{dataRecipe.instruction}}</span></td>
         </div>
       </tbody>
     </table>
-    <td class="pt-0 pl-0 pr-0 pb-0" *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive   float-lg-right img-fluid figure-img img-size" [src]="recipeImg.src"></td>
+    <td class="pt-0 pl-0 pr-0 pb-0" *ngFor="let recipeImg of selectedRecipe"> <img class="img-responsive   float-lg-right img-fluid figure-img img-size rounded-circle" [src]="recipeImg.src"></td>
 
   </tr>
 </table>
