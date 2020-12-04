@@ -5,7 +5,7 @@ export class Recipe {
   name: string;
   instruction: string;
   state: string;
-  ingredient: Ingredient;
+  ingredients: Ingredient;
   src: any;
   constructor() {
     this.id = 0;
@@ -13,7 +13,7 @@ export class Recipe {
     this.instruction = '';
     this.state = '';
     this.src = '';
-    this.ingredient = new  Ingredient();
+    this.ingredients = new  Ingredient();
   }
 }
 
