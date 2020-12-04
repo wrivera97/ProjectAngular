@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Recipe} from './models/recipe.model';
 import {RecipeService} from './shared/recipe.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Ingredient} from './models/ingredient.model';
-import {ngWalkerFactoryUtils} from 'codelyzer/angular/ngWalkerFactoryUtils';
+import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ import {ngWalkerFactoryUtils} from 'codelyzer/angular/ngWalkerFactoryUtils';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   question: boolean;
   recipes: any;
   selectedRecipe: any;
@@ -19,9 +20,10 @@ export class AppComponent implements OnInit {
   newRecipe: Recipe;
   newIngredient: Ingredient;
   editIngredient: Ingredient;
+  formulario: FormGroup ;
   restrictedWords = ['burger', 'pizza', 'french fries', 'jelly'];
 
-  constructor(private http: HttpClient, private recipeService: RecipeService) {
+  constructor(private fb: FormBuilder, private recipeService: RecipeService) {
   }
 
   ngOnInit() {
@@ -31,10 +33,7 @@ export class AppComponent implements OnInit {
     this.newRecipe = new Recipe();
     this.updateRecipe = new Recipe();
     this.getRecipes();
-    // this.wordPass = this.wordsData();
-
   }
-
   getRecipes() {
     this.recipeService.get('recipes').subscribe(
       (response) => {
@@ -42,7 +41,6 @@ export class AppComponent implements OnInit {
       }
     );
   }
-
   getRecipe(recipe: Recipe) {
     this.selectedRecipe = recipe;
     this.recipeService.get('recipes?id=' + this.selectedRecipe).subscribe(
@@ -50,6 +48,7 @@ export class AppComponent implements OnInit {
         this.selectedRecipe = response;
       });
   }
+
 
   postRecipe() {
     this.newRecipe.ingredients.id = this.newIngredient.id + 1;
@@ -67,6 +66,16 @@ export class AppComponent implements OnInit {
       });
   }
 
+  deleteRecipe(dataRecipe) {
+    this.question = confirm('¿Are you sure?');
+    if (this.question) {
+      this.recipeService.delete('recipes/' + dataRecipe.id).subscribe(
+        (responde) => {
+          this.getRecipes();
+        });
+    }
+  }
+
   putRecipe(dataRecipe: Recipe) {
     this.updateRecipe = dataRecipe;
     this.recipeService.put('recipes/' + this.updateRecipe.id , this.updateRecipe).subscribe(
@@ -77,8 +86,7 @@ export class AppComponent implements OnInit {
         }
       });
   }
-
-  /*wordsValidations
+  /*
   wordsData() {
       const checkWords = (word) => {
       const rgx = new RegExp(this.restrictedWords.join('|') + '|' + '/gi');
@@ -93,9 +101,9 @@ export class AppComponent implements OnInit {
 
         }
     });
-  }*/
+  }
 
-
+*/
   }
 
 

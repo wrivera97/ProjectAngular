@@ -7,7 +7,6 @@ export class Ingredient {
   constructor() {
     this.id = length + 1;
     this.name = '';
-    this.state = null ;
     this.quantity = '';
   }
 
